@@ -11,8 +11,7 @@
 </template>
 
 <script lang="ts">
-import { onMounted, ref, computed } from "vue";
-import { defineComponent } from 'vue'
+import { onMounted, ref, computed, defineComponent } from "vue";
 import axios from "axios";
 
 export default defineComponent({
