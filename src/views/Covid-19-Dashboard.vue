@@ -1,11 +1,13 @@
 <template>
   <div>
-    <h1>Countries</h1>
-    <div v-for="country in listOfCountries" :key="country" class="country">
-      <h3>{{ country }}</h3>
-      <div>Confirmed: {{ getCountryConfirmed(country) }}</div>
-      <div>Recovered: {{ getCountryRecovered(country) }}</div>
-      <div>Deaths: {{ getCountryDeaths(country) }}</div>
+    <h1 class="country-header">Countries</h1>
+    <div class="flex flex-wrap justify-between gap-4 mx-4">
+      <div v-for="country in listOfCountries" :key="country" class="country">
+        <h3>{{ country }}</h3>
+        <div>Confirmed: {{ getCountryConfirmed(country) }}</div>
+        <div>Recovered: {{ getCountryRecovered(country) }}</div>
+        <div>Deaths: {{ getCountryDeaths(country) }}</div>
+      </div>
     </div>
   </div>
 </template>
@@ -55,8 +57,15 @@ export default defineComponent({
 </script>
 
 <style scoped>
+.country-header {
+  @apply m-4;
+  @apply font-bold;
+}
 .country {
-  margin-bottom: 2rem;
-  padding-left: 1rem;
+  @apply mb-8;
+  @apply px-4;
+  @apply ring;
+  @apply rounded-md;
+  @apply bg-blue-100;
 }
 </style>

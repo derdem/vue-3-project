@@ -11,8 +11,12 @@
     "i18n:report": "vue-cli-service i18n:report --src \"./src/**/*.?(js|vue)\" --locales \"./src/locale/**/*.json\""
   },
   "dependencies": {
+    "@tailwindcss/postcss7-compat": "^2.0.2",
+    "autoprefixer": "^9",
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
+    "postcss": "^7",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.2",
     "vue": "^3.0.0",
     "vue-class-component": "^8.0.0-0",
     "vue-i18n": "^9.1.0",
@@ -43,6 +47,7 @@
     "prettier": "^2.2.1",
     "typescript": "~4.1.5",
     "vue-cli-plugin-i18n": "^2.1.0",
+    "vue-cli-plugin-tailwind": "~2.0.6",
     "vue-jest": "^5.0.0-0"
   },
   "eslintConfig": {
@@ -62,6 +67,7 @@
       "parser": "@typescript-eslint/parser",
       "ecmaVersion": 2020
     },
+    "ignorePatterns": ["/tailwind.config.js"],
     "rules": {},
     "overrides": [
       {
