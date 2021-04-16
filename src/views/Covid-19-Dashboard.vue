@@ -16,7 +16,7 @@ import axios from "axios";
 
 export default defineComponent({
   setup() {
-    const countries = ref({} as any);
+    const countries = ref({} as Record<string, never>);
     const getCoronaData = async () => {
       const { data } = await axios.get(
         "https://covid-api.mmediagroup.fr/v1/cases"
