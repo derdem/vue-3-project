@@ -56,5 +56,6 @@ export default defineComponent({
 <style scoped>
 .country {
     margin-bottom: 2rem;
+    padding-left: 1rem;
 }
 </style>
