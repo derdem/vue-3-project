@@ -1,9 +1,16 @@
 <template>
   <div>
-    <h3>{{ country }}</h3>
-    <div>Confirmed: {{ confirmed }}</div>
-    <div>Recovered: {{ recovered }}</div>
-    <div>Deaths: {{ died }}</div>
+    <h3 class="font-bold py-2">{{ country }}</h3>
+    <div class="grid grid-cols-2 gap-1">
+      <div>Population:</div>
+      <div>{{ population }}</div>
+      <div>Confirmed:</div>
+      <div>{{ confirmed }}</div>
+      <div>Recovered:</div>
+      <div>{{ recovered }}</div>
+      <div>Deaths:</div>
+      <div>{{ died }}</div>
+    </div>
   </div>
 </template>
 
@@ -22,6 +29,12 @@ export default defineComponent({
   setup(props) {
     const store = useStore();
 
+    const population = computed(() => {
+      const countries = store.getters["coronaStatistics/getCountries"];
+      const country = props.country;
+      return countries[country]["All"]["population"];
+    });
+
     const confirmed = computed(() => {
       const countries = store.getters["coronaStatistics/getCountries"];
       const country = props.country;
@@ -37,9 +50,10 @@ export default defineComponent({
     const died = computed(() => {
       const countries = store.getters["coronaStatistics/getCountries"];
       const country = props.country;
-      return countries[country]["All"]["recovered"];
+      return countries[country]["All"]["deaths"];
     });
     return {
+      population,
       confirmed,
       recovered,
       died,

@@ -4,10 +4,6 @@
     <div class="flex flex-wrap justify-between gap-4 mx-4">
       <div v-for="country in listOfCountries" :key="country" class="country">
         <country-card :country="country"></country-card>
-        <!-- <h3>{{ country }}</h3> -->
-        <!-- <div>Confirmed: {{ getCountryConfirmed(country) }}</div>
-        <div>Recovered: {{ getCountryRecovered(country) }}</div>
-        <div>Deaths: {{ getCountryDeaths(country) }}</div> -->
       </div>
     </div>
   </div>
@@ -23,29 +19,13 @@ export default defineComponent({
   name: "CoronaDashboard",
   setup() {
     const store = useStore();
-    console.log(store);
 
     const listOfCountries = computed(
       () => store.getters["coronaStatistics/getCountryList"]
     );
 
-    /* const getCountryConfirmed = (country: string) => {
-      return countries.value[country]["All"]["confirmed"];
-    };
-
-    const getCountryRecovered = (country: string) => {
-      return countries.value[country]["All"]["recovered"];
-    };
-
-    const getCountryDeaths = (country: string) => {
-      return countries.value[country]["All"]["deaths"];
-    }; */
-
     return {
       listOfCountries,
-      /* getCountryConfirmed,
-      getCountryRecovered,
-      getCountryDeaths, */
     };
   },
 });
