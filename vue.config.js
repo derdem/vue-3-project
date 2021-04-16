@@ -7,7 +7,7 @@ module.exports = {
       enableLegacy: undefined,
       runtimeOnly: false,
       compositionOnly: false,
-      fullInstall: true
-    }
-  }
-}
+      fullInstall: true,
+    },
+  },
+};

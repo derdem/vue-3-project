@@ -1,24 +1,28 @@
-import { RouteRecordRaw } from 'vue-router'
+import { RouteRecordRaw } from "vue-router";
 
 export default function generateRoutes(): Array<RouteRecordRaw> {
-    return [
-        {
-          path: '/home',
-          name: 'Home',
-          component: () => import("@/views/Home.vue")
-        },
-        {
-          path: '/about',
-          name: 'About',
-          // route level code-splitting
-          // this generates a separate chunk (about.[hash].js) for this route
-          // which is lazy-loaded when the route is visited.
-          component: () => import(/* webpackChunkName: "about" */ '@/views/About.vue')
-        },
-        {
-            path: "/",
-            name: "Corona",
-            component: () => import(/* webpackChunkName: "about" */ "@/views/Covid-19-Dashboard.vue")
-        }
-      ]
+  return [
+    {
+      path: "/home",
+      name: "Home",
+      component: () => import("@/views/Home.vue"),
+    },
+    {
+      path: "/about",
+      name: "About",
+      // route level code-splitting
+      // this generates a separate chunk (about.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () =>
+        import(/* webpackChunkName: "about" */ "@/views/About.vue"),
+    },
+    {
+      path: "/",
+      name: "Corona",
+      component: () =>
+        import(
+          /* webpackChunkName: "about" */ "@/views/Covid-19-Dashboard.vue"
+        ),
+    },
+  ];
 }
