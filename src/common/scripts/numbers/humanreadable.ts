@@ -1,4 +1,4 @@
-export default function humanreadable(numInput: number) {
+export default function humanreadable(numInput: number): string {
   if (numInput === undefined) {
     return "Not Defined";
   }
