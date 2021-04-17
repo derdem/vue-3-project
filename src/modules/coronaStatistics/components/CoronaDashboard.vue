@@ -11,6 +11,11 @@
       </button>
     </div>
     <div class="flex flex-wrap justify-between gap-4 mx-4">
+      <div v-for="summary in listOfSummaries" :key="summary" class="country">
+        <country-card :country="summary"></country-card>
+      </div>
+    </div>
+    <div class="flex flex-wrap justify-between gap-4 mx-4">
       <div v-for="country in listOfCountries" :key="country" class="country">
         <country-card :country="country"></country-card>
       </div>
@@ -29,9 +34,17 @@ export default defineComponent({
   setup() {
     const store = useStore();
 
-    const listOfCountries = computed(
-      () => store.getters["coronaStatistics/getCountryList"]
-    );
+    const listOfCountries = computed(() => {
+      const entries = store.getters["coronaStatistics/getCountryList"];
+      const countries = entries.filter((entry: string) => entry !== "Global");
+      return countries;
+    });
+
+    const listOfSummaries = computed(() => {
+      const entries = store.getters["coronaStatistics/getCountryList"];
+      const globals = entries.filter((entry: string) => entry === "Global");
+      return globals;
+    });
 
     const rickRoll = function () {
       window.location.href =
@@ -40,6 +53,7 @@ export default defineComponent({
 
     return {
       listOfCountries,
+      listOfSummaries,
       rickRoll,
     };
   },
