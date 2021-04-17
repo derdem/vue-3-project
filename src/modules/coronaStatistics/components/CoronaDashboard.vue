@@ -1,6 +1,15 @@
 <template>
   <div>
-    <h1 class="country-header">Countries</h1>
+    <div class="flex py-4">
+      <h1 class="country-header">Countries</h1>
+      <button
+        type="button"
+        class="bg-blue-300 my-2 px-2 rounded-md active:ring-blue-500 hover:bg-blue-400"
+        @click="rickRoll"
+      >
+        Click here for fun
+      </button>
+    </div>
     <div class="flex flex-wrap justify-between gap-4 mx-4">
       <div v-for="country in listOfCountries" :key="country" class="country">
         <country-card :country="country"></country-card>
@@ -24,8 +33,14 @@ export default defineComponent({
       () => store.getters["coronaStatistics/getCountryList"]
     );
 
+    const rickRoll = function () {
+      window.location.href =
+        "https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstleyVEVO";
+    };
+
     return {
       listOfCountries,
+      rickRoll,
     };
   },
 });
